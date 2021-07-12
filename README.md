@@ -1509,14 +1509,14 @@ plot3d(f.y, xlim = c(-10,10), ylim = c(-10,10), col = 'green', add = TRUE)
 Optimizacion mediante Derivadas - Funciones de una variable <a name="optimizacion-derivadas-una-variable"></a>
 ===========================================================
 
-``` r
+```
 # La optimización en cálculo es encontrar cantidades mínimas y máximas de una función,
 # estas se llaman valores extremos.
 # En un pequeño intervalo, son extremos locales
 # Sobre toda la función, son extremos globales
 ```
 
-``` r
+```
 # Una empresa ha determinado que las ventas de un artículo varían con su precio ('x') de acuerdo 
 # a la función f(x) = - 0.02x^2 + 0.75x
 # ¿Cuál debería ser el precio ('x') del artículo para maximizar las ventas?
@@ -1525,13 +1525,13 @@ Optimizacion mediante Derivadas - Funciones de una variable <a name="optimizacio
 # Solo necesitamos encontrar los puntos donde la derivada es igual a cero.
 ```
 
-``` r
+```
 # Si f(x) tiene un valor extremo en x*, entonces f'(x*) = 0
 
 # Si f'(x*) = 0 usamos la segunda derivada para determinar si el valor extremo es máximo o mínimo.
 
-### Si f'(x*) = 0 y f''(x*) > 0, entonces, f es concave-up y f(x*) is minimo local
-### Si f'(x*) = 0 and f''(x*) < 0, entonces, f es concave-down y f(x*) is maximo local
+# Si f'(x*) = 0 y f''(x*) > 0, entonces, f es concave-up y f(x*) is minimo local
+# Si f'(x*) = 0 and f''(x*) < 0, entonces, f es concave-down y f(x*) is maximo local
 ```
 
 Igualando la derivada a cero
@@ -1611,8 +1611,8 @@ Optimizacion mediante Derivadas - Funciones de dos variables <a name="optimizaci
 ```
 # Recuerde que: Si f(x) tiene un valor extremo en x*, entonces f'(x*) = 0.
 # Suponga que f es una función de dos variables, x e y. Entonces:
-## Si f(x,y) tiene un valor extremo en (x*, y*), entonces, f_x(x*,y*) y f_y(x*,y*) ambos serán = 0.
-## El punto (x*, y*) es un punto critico de f
+# Si f(x,y) tiene un valor extremo en (x*, y*), entonces, f_x(x*,y*) y f_y(x*,y*) ambos serán = 0.
+# El punto (x*, y*) es un punto critico de f
 ```
 
 ```
@@ -1639,11 +1639,11 @@ Optimizacion mediante Derivadas - Funciones de dos variables <a name="optimizaci
 
 ```
 # Calculando D:
-## f_xx(1,3) = 2 => 2 > 0 (si)
-## f_yy(1,3) = 2
-## f_xy(1,3) = 0
-## D = 2*2 - 0 = 4 => D > 0
-## Como D > 0 y f_xx(1,3) > 0, entonces, f(1,3) es un minimo local
+# f_xx(1,3) = 2 => 2 > 0 (si)
+# f_yy(1,3) = 2
+# f_xy(1,3) = 0
+# D = 2*2 - 0 = 4 => D > 0
+# Como D > 0 y f_xx(1,3) > 0, entonces, f(1,3) es un minimo local
 ```
 
 Encontrar todas las derivadas iguales a cero
@@ -2039,7 +2039,7 @@ Eigenvectors y Eigenvalues <a name="Eigenvectors-Eigenvalues"></a>
 # la mayor cantidad de variación en los datos.
 # Si la matriz de covarianza tiene un Eigenvalue de 0, podría significar que existe una dependencia 
 # lineal en el conjunto de datos.
-## ¡Lo contrario no es cierto! Si la matriz de covarianza no tiene un valor propio de 0, 
+# ¡Lo contrario no es cierto! Si la matriz de covarianza no tiene un valor propio de 0, 
 # no significa que no haya una dependencia lineal en el conjunto de datos.
 # Técnicamente, un valor propio de cero significa que no hay más variación en los datos, 
 # a menudo, esto se debe a una dependencia lineal.
@@ -2175,7 +2175,7 @@ Descenso del Gradiente <a name="Descenso-Gradiente"></a>
 # Repita hasta que (𝑥_𝑛, 𝑦_𝑛) sea un punto crítico
 ```
 
-``` r
+```r
 library(Deriv)
 library(rgl)
 ```
@@ -2183,7 +2183,9 @@ library(rgl)
 Ejecución del algoritmo de descenso de gradiente
 ------------------------------------------------
 
-0. Defina y grafique `f (x, y) = (x-2)^2 + (y+3)^2`
+0. Defina y grafique:
+
+`f (x, y) = (x-2)^2 + (y+3)^2`
 
 ``` r
 # para x e y entre -10 y 10
@@ -2231,7 +2233,9 @@ for (i in 1:n.iter) {
   x.gradient <- f.x(x=x)
   y.gradient <- f.y(y=y)
   
-  # 4. Calcule el nuevo punto como xnew = x - alpha * f_x (x, y) y ynew = y - alpha * f_y (x, y)
+  # 4. Calcule el nuevo punto como 
+  # xnew = x - alpha * f_x (x, y) y 
+  # ynew = y - alpha * f_y (x, y)
   x <- x - alpha*x.gradient
   y <- y - alpha*y.gradient
   
@@ -2370,7 +2374,8 @@ b0.history <- numeric(n.iter)
 b1.history <- numeric(n.iter)
 
 for (i in 1:n.iter) {
-  # Calcular el gradiente (derivadas parciales evaluado en B0 y B1) 
+  # Calcular el gradiente 
+  # (derivadas parciales evaluado en B0 y B1) 
   b0.gradient <- del.b0(b0, b1)
   b1.gradient <- del.b1(b0, b1)
   
@@ -2435,7 +2440,9 @@ plot(error.history)
 
 ``` r
 # Convergencia ocurre en torno a la iteración 440
-length(which(round(error.history,3) > min.error))
+length(
+  which(round(error.history,3) > min.error)
+)
 ```
 
     ## [1] 444
