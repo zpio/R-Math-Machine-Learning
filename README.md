@@ -1918,10 +1918,10 @@ set.seed(123)
 x1 <- rnorm(n = 100)
 x2 <- rnorm(n = 100)
 
-## x3 es una combinación lineal de x1 y x2
+# x3 es una combinación lineal de x1 y x2
 x3 <- 2*x1 + 3*x2   
 
-## 4*x3 = 4(2*x1 + 3*x2) = 8*x1 + 12*x2
+# 4*x3 = 4(2*x1 + 3*x2) = 8*x1 + 12*x2
 y <- 4*x3  
 ```
 
@@ -2273,7 +2273,7 @@ Descenso de gradiente en regresión lineal <a name="Descenso-Gradiente-regresion
 ```
 
 En Regresión lineal, la función de costo (pérdida o error) es:
-``` r
+```
 # L = sum(ei)^2
 #   = sum(yi - y^_i)^1
 #   = sum(yi - Bo - sum(Bi xij))^2
@@ -2293,7 +2293,7 @@ plot(x, y)
 
 ``` r
 lm.mod <- lm(y ~ x)
-## Bastante cerca de los valores reales de 5 y 2
+# Bastante cerca de los valores reales de 5 y 2
 lm.mod  
 ```
 
@@ -2348,7 +2348,7 @@ Calcular el gradiente (derivadas parciales evaluado en B0 y B1).
 
 Calcular los nuevos Betas.
 
-Guardar las iteraciones de (B0, B1)
+Guardar las iteraciones de (B0, B1).
 
 ``` r
 # Inicializar parámetros para algoritmo
@@ -2379,7 +2379,6 @@ for (i in 1:n.iter) {
 
 ``` r
 # Ver resultados y comparar con lm
-
 # Cerca de 5 y 2
 beta 
 ```
@@ -2412,6 +2411,7 @@ abline(a = b0, b = b1, col = 'red')
 ``` r
 # Convergencia hacia el error mínimo
 # error mínimo de 455.455
+
 min.error <- round(error.history[n.iter], 3) 
 min.error
 ```
@@ -2433,6 +2433,7 @@ length(which(round(error.history,3) > min.error))
 
 ``` r
 # Datos reales con convergencia de la línea de mejor ajuste
+
 library(animation)
 #windows();
 for (i in 1:n.iter) {
