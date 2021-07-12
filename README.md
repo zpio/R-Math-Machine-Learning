@@ -116,7 +116,7 @@ plot(u1[1], u1[2], type = 'p', col = 'red',
 arrows(x0 = 0, y0 = 0, x1 = u1[1], y1=u1[2], lwd = 2)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](imagenes/unnamed-chunk-11-1.png)
 
 ``` r
 # Graficando dos vectores en 2-D
@@ -130,7 +130,7 @@ points(x=v2[1], y=v2[2], col = 'blue')
 arrows(x0=0, y0=0, x1=v2[1], y1=v2[2], col = 'blue')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](imagenes/unnamed-chunk-12-1.png)
 
 ``` r
 # Graficando un Vector en 3-D
@@ -144,7 +144,7 @@ arrows3D(x0 = 0, y0 = 0, z0 = 0,
          lwd = 2, add = TRUE)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](imagenes/unnamed-chunk-13-1.png)
 
 ------------------------------------------------------------------------
 Operaciones con Vectores
@@ -172,7 +172,7 @@ vecplot_2d <- function(vector, xax, yax, color) {
 vecplot_2d(vector = c(1,2), xax=c(0,5), yax=c(0,5), color = 'red')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![](imagenes/unnamed-chunk-14-1.png)
 
 ``` r
 # Gráfica de un vector en 3-D
@@ -194,7 +194,7 @@ vecplot_3d <- function(vector, xax, yax, zax, color) {
 vecplot_3d(vector = c(2,3,4), xax = c(0,5), yax=c(0,5), zax=c(0,5), col = 'green')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](imagenes/unnamed-chunk-15-1.png)
 
 Multiplicación de un vector con un escalar
 ------------------------------------------
@@ -293,7 +293,7 @@ vec.add.plot_2d <- function(vec1, vec2, xax, yax) {
 vec.add.plot_2d(vec1 = c(1,4), vec2 = c(3,2), xax=c(0,10), yax=c(0,10))
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-21-1.png)
+![](imagenes/unnamed-chunk-21-1.png)
 
 ``` r
 # Grafica de suma de vectores en 3-D (libreria plot3D)
@@ -340,7 +340,7 @@ vec.add.plot_3d(vec1=c(1,2,3), vec2=c(4,5,4), xax=c(0,10), yax=c(0,10), zax=c(0,
                 phi = 0, theta = 30)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-22-1.png)
+![](imagenes/unnamed-chunk-22-1.png)
 
 ------------------------------------------------------------------------
 
@@ -633,9 +633,6 @@ head(game.cost)
 ``` r
 library(rgl)
 ```
-
-    ## Warning: package 'rgl' was built under R version 3.6.3
-
 ``` r
 knitr::knit_hooks$set(webgl = hook_webgl)
 ```
@@ -653,6 +650,8 @@ plot3d(x = game.cost$Hot.Dogs,
        ylab = 'French Fries Purchased',
        zlab = 'Total Cost')
 ```
+![](imagenes/plot1.png)
+
 **Otra alternativa es graficar de forma estática**
 
 ``` r
@@ -667,7 +666,7 @@ scatter3D(x=game.cost$Hot.Dogs, y=game.cost$Fries, z=game.cost$Total.Cost,
           zlab = 'Total Cost')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-43-1.png)
+![](imagenes/unnamed-chunk-43-1.png)
 
 **Utilice la función `lm()` para estimar un modelo de regresión lineal**
 
@@ -738,6 +737,8 @@ plot3d(x = mtcars$wt,
        ylab = 'Qsec',
        zlab = 'MPG')
 ```
+![](imagenes/plot2.png)
+
 
 **Otra alternativa es graficar de forma estática**
 
@@ -751,7 +752,7 @@ scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mtcars$mpg,
           main = "mtcars")
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-48-1.png)
+![](imagenes/unnamed-chunk-48-1.png)
 
 **Utilice `lm()` para ajustar un modelo de regresión lineal**
 
@@ -776,7 +777,7 @@ mpg.model
 plot(mtcars$mpg, mpg.model$fitted.values)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-50-1.png)
+![](imagenes/unnamed-chunk-50-1.png)
 
 ``` r
 rgl.clear()
@@ -793,6 +794,9 @@ plot3d(x = mtcars$wt,
        zlab = 'MPG',
        add = TRUE)
 ```
+
+![](imagenes/plot3.png)
+
 ``` r
 scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mpg.model$fitted.values, 
           pch = 20, cex = 2, bty ="g",
@@ -802,7 +806,7 @@ scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mpg.model$fitted.values,
           main = "mtcars")
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-51-1.png)
+![](imagenes/unnamed-chunk-51-1.png)
 
 ``` r
 grid.lines = 26
@@ -827,7 +831,7 @@ scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mtcars$mpg,
           main = "mtcars")
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-52-1.png)
+![](imagenes/unnamed-chunk-52-1.png)
 
 Error del Modelo
 ----------------
@@ -867,13 +871,13 @@ sum(error.measures$error)
 plot(error.measures$error)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-54-1.png)
+![](imagenes/unnamed-chunk-54-1.png)
 
 ``` r
 plot(error.measures$squared.error)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-54-2.png)
+![](imagenes/unnamed-chunk-54-2.png)
 
 ``` r
 # La media del error cuadratico (mse)
@@ -945,13 +949,13 @@ X
 plot(x.1, y)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-59-1.png)
+![](imagenes/unnamed-chunk-59-1.png)
 
 ``` r
 plot(x.2, y)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-59-2.png)
+![](imagenes/unnamed-chunk-59-2.png)
 
 ``` r
 scatter3D(x=x.1, y=x.2, z=y, 
@@ -961,7 +965,7 @@ scatter3D(x=x.1, y=x.2, z=y,
           xlab = "x.1", ylab = "x.2", zlab = "y")
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-59-3.png)
+![](imagenes/unnamed-chunk-59-3.png)
 
 **Cálculo del vector de Betas (Coeficientes)**
 
@@ -1009,13 +1013,13 @@ head(data)
 plot(data$wt, data$mpg)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-62-1.png)
+![](imagenes/unnamed-chunk-62-1.png)
 
 ``` r
 plot(data$qsec, data$mpg)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-62-2.png)
+![](imagenes/unnamed-chunk-62-2.png)
 
 **Graficar las 3 variables juntas**
 
@@ -1027,7 +1031,7 @@ scatter3D(x=data$wt, y=data$qsec, z=data$mpg,
           xlab = "wt", ylab = "qsec", zlab = "mpg")
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-63-1.png)
+![](imagenes/unnamed-chunk-63-1.png)
 
 **Define las datos en matrices (modelo deseado: mpg \~ wt + qsec)**
 
@@ -1091,7 +1095,7 @@ línea recta**
 plot(pred$mpg, pred$Predicted)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-67-1.png)
+![](imagenes/unnamed-chunk-67-1.png)
 
 ``` r
 scatter3D(x=pred$wt, y=pred$qsec, z=pred$mpg, 
@@ -1101,7 +1105,7 @@ scatter3D(x=pred$wt, y=pred$qsec, z=pred$mpg,
           xlab = "pred$wt", ylab = "pred$qsec", zlab = "pred$mpg")
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-67-2.png)
+![](imagenes/unnamed-chunk-67-2.png)
 
 ------------------------------------------------------------------------
 
@@ -1111,8 +1115,7 @@ Funciones y rectas tangentes
 Definición de una función
 -------------------------
 
-**Una función es una regla matemática que opera sobre una entrada para
-producir una salida.**
+**Una función es una regla matemática que opera sobre una entrada para producir una salida.**
 
 ``` r
 f <- function(x) x 
@@ -1129,25 +1132,25 @@ Graficar una función
 plot(f, main = "f(x) = x", xlim = c(-5,5), col = 'blue')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-69-1.png)
+![](imagenes/unnamed-chunk-69-1.png)
 
 ``` r
 plot(x2, main = "f(x) = x^2", xlim = c(-5,5), col = 'blue')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-69-2.png)
+![](imagenes/unnamed-chunk-69-2.png)
 
 ``` r
 plot(x3, main = "f(x) = x^3", xlim = c(-5,5), col = 'blue')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-69-3.png)
+![](imagenes/unnamed-chunk-69-3.png)
 
 ``` r
 plot(x4, main = "f(x) = x^4", xlim = c(-5,5), col = 'blue')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-69-4.png)
+![](imagenes/unnamed-chunk-69-4.png)
 
 ``` r
 plot(sqrt.x, main = "f(x) = sqrt(x)", xlim = c(-5,5), col = 'blue')
@@ -1155,13 +1158,13 @@ plot(sqrt.x, main = "f(x) = sqrt(x)", xlim = c(-5,5), col = 'blue')
 
     ## Warning in sqrt(x): NaNs produced
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-69-5.png)
+![](imagenes/unnamed-chunk-69-5.png)
+
 
 Estimando la pendiente de una recta tangente
 --------------------------------------------
 
-**Función para estimar la pendiente de la recta tangente usando rectas
-secantes**
+**Función para estimar la pendiente de la recta tangente usando rectas secantes**
 
 ``` r
 # Funcion para estimar la pendiente de la recta tangente usando rectas secantes
@@ -1229,8 +1232,7 @@ secant.plots(fun = f, pt = -2)
 # Slope = -4
 ```
 
-**Función para estimar la pendiente de la recta tangente con una sola
-recta**
+**Función para estimar la pendiente de la recta tangente con una sola recta**
 
 ``` r
 tangent.plots <-  function(fun, pt) {
@@ -1249,17 +1251,17 @@ tangent.plots <-  function(fun, pt) {
 tangent.plots(fun = x3, pt = -2)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-71-1.png)
+![](imagenes/unnamed-chunk-71-1.png)
+
+Graficar rectas tangentes y secantes de la funcion f(x) = sqrt(x):
 
 ``` r
-# Graficar rectas tangentes y secantes de la funcion f(x) = sqrt(x)
-
 plot(sqrt.x, xlim = c(-10,10))
 ```
 
     ## Warning in sqrt(x): NaNs produced
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-72-1.png)
+![](imagenes/unnamed-chunk-72-1.png)
 
 ``` r
 plot(sqrt.x, xlim = c(0,20))
@@ -1270,7 +1272,7 @@ sqrt.x.prime <- Deriv(sqrt.x)
 curve(sqrt.x.prime, add = TRUE)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-72-2.png)
+![](imagenes/unnamed-chunk-72-2.png)
 
 ``` r
 # secant.plots(fun = sqrt.x, pt = 3)
@@ -1280,7 +1282,7 @@ tangent.plots(fun = sqrt.x, pt = 3)
 
     ## Warning in sqrt(x): NaNs produced
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-72-3.png)
+![](imagenes/unnamed-chunk-72-3.png)
 
 Derivada de una Función
 =======================
@@ -1297,7 +1299,7 @@ f <- function(x) x^3
 plot(f, main = "f(x) = x^3", xlim = c(-5,5), col = 'blue')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-73-1.png)
+![](imagenes/unnamed-chunk-73-1.png)
 
 ``` r
 ## Graficar la recta tangente
@@ -1317,7 +1319,7 @@ tangent.plots <-  function(fun, pt) {
 tangent.plots(fun = f, pt = 2) #Slope = 12
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-73-2.png)
+![](imagenes/unnamed-chunk-73-2.png)
 
 ``` r
 ## Para x = -2, f' = 12; 
@@ -1327,14 +1329,14 @@ tangent.plots(fun = f, pt = 2) #Slope = 12
 ## Para x = 2, f' = 12
 ```
 
+Grafique los siguientes puntos en la grafica:
 ``` r
-## Grafique los siguientes puntos en la grafica
 plot(f, xlim = c(-5,5), col = 'blue')
 
 points(x = -4:4, y = c(48,27,12,3,0,3,12,27,48), col = 'red') 
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-75-1.png)
+![](imagenes/unnamed-chunk-75-1.png)
 
 Encontrar la derivada (y la regla de la potencia)
 -------------------------------------------------
@@ -1356,7 +1358,7 @@ points(x = -4:4, y = c(48,27,12,3,0,3,12,27,48), col = 'red')
 curve(f.prime, add = TRUE)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-77-1.png)
+![](imagenes/unnamed-chunk-77-1.png)
 
 ``` r
 ### Realice algunas derivadas y busque un patrón
@@ -1398,6 +1400,8 @@ plot3d(f, xlim = c(-10,10), ylim = c(-10,10), col = 'blue')
 plot3d(f.x, xlim = c(-10,10), ylim = c(-10,10), type = 'p', col = 'red', add = TRUE)
 plot3d(f.y, xlim = c(-10,10), ylim = c(-10,10), col = 'green', add = TRUE)
 ```
+![](imagenes/plot4.png)
+
 
 Optimizacion mediante Derivadas - Funciones de una variable
 ===========================================================
@@ -1450,7 +1454,7 @@ abline(h = 0, lty = 3)
 curve(f.prime, col = 'red', add = TRUE)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-88-1.png)
+![](imagenes/unnamed-chunk-88-1.png)
 
 ``` r
 ## Encontrar el punto critico donde f'(x*) = 0
@@ -1559,7 +1563,7 @@ f.x
 plot(f.x, xlim = c(-10,10))
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-99-1.png)
+![](imagenes/unnamed-chunk-99-1.png)
 
 ``` r
 f.y <- Deriv(f, x = 'y')
@@ -1660,7 +1664,7 @@ f2.y
 library(rgl)
 plot3d(f2.x, xlim = c(-10,10), ylim = c(-10,10))
 ```
-
+![](imagenes/plot5.png)
 
 ``` r
 library(rootSolve)
@@ -2080,6 +2084,7 @@ Ejecución del algoritmo de descenso de gradiente
 f <- function(x,y) (x-2)^2 + (y+3)^2
 plot3d(f, xlim = c(-10,10), ylim = c(-10,10), col = 'green')
 ```
+![](imagenes/plot6.png)
 
 
 ``` r
@@ -2125,18 +2130,19 @@ Visualización e interpretación de resultados
 plot(f.history)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-145-1.png)
+![](imagenes/unnamed-chunk-145-1.png)
 
 ``` r
 plot(x.history, y.history)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-145-2.png)
+![](imagenes/unnamed-chunk-145-2.png)
 
 ``` r
 plot3d(f, xlim = c(-5,5), ylim = c(-5,5), col = 'green')
 points3d(x.history, y.history, f(x.history,y.history), col = 'red')
 ```
+![](imagenes/plot7.png)
 
 -------------------------------------
 
@@ -2168,7 +2174,7 @@ y <- 5 + 2*x + rnorm(500) # B0 = 5, B1 = 2
 plot(x, y)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-149-1.png)
+![](imagenes/unnamed-chunk-149-1.png)
 
 ``` r
 lm.mod <- lm(y ~ x)
@@ -2190,7 +2196,7 @@ plot(x, y)
 abline(a = lm.mod$coefficients[1], b = lm.mod$coefficients[2], col = 'red')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-151-1.png)
+![](imagenes/unnamed-chunk-151-1.png)
 
 Ejecute el Descenso de gradiente
 --------------------------------
@@ -2278,7 +2284,7 @@ plot(x, y)
 abline(a = b0, b = b1, col = 'red')
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-158-1.png)
+![](imagenes/unnamed-chunk-158-1.png)
 
 ``` r
 # Convergencia hacia el error mínimo
@@ -2293,7 +2299,7 @@ min.error
 plot(error.history)
 ```
 
-![](Matematicas_Machine_Learning_R_files/figure-markdown_github/unnamed-chunk-160-1.png)
+![](imagenes/unnamed-chunk-160-1.png)
 
 ``` r
 # Convergencia ocurre en torno a la iteración 440
