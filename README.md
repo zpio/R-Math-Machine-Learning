@@ -49,7 +49,9 @@ str(v2)
 
 ``` r
 # Usando la función seq() - secuencia
-v3 <- seq(from = 2, to = 5, by = 1)
+v3 <- seq(from = 2, 
+          to = 5, 
+          by = 1)
 str(v3)
 ```
 
@@ -78,7 +80,10 @@ y columnas).**
 
 ``` r
 # Usando la función matrix() 
-m1 <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3, byrow = TRUE)
+m1 <- matrix(c(1,2,3,4,5,6), 
+             nrow = 2, 
+             ncol = 3, 
+             byrow = TRUE)
 m1
 ```
 
@@ -95,7 +100,8 @@ dim(m1)
 
 ``` r
 m1 <- matrix( c(1,2,3,4,5,6), 
-              nrow = 2, ncol = 3, 
+              nrow = 2, 
+              ncol = 3, 
               byrow = FALSE)
 m1
 ```
@@ -106,7 +112,8 @@ m1
 
 ``` r
 # Usando la función rbind()
-m2 <- rbind(c(1,2,3), c(4,5,6))
+m2 <- rbind(c(1,2,3), 
+            c(4,5,6))
 m2
 ```
 
@@ -116,7 +123,9 @@ m2
 
 ``` r
 # Usando las función cbind()
-m3 <- cbind(c(1,4), c(2,5), c(3,6))
+m3 <- cbind(c(1,4), 
+            c(2,5), 
+            c(3,6))
 m3
 ```
 
