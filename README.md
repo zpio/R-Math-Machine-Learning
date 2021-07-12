@@ -2,6 +2,21 @@
 ===============================
 
 ### Contenido:
+- [1 Escalares, Vectores, y Matrices](#escalares-vectores-matrices)
+- [2 Operaciones con Vectores](#Operaciones-con-Vectores)
+- [3 Operaciones con Matrices: Suma, Resta y Multiplicación](#Operaciones-con-matrices)
+- [4 Operaciones con matrices: Matrices transpuestas, inversas e identidad](#Operaciones-con-matrices2)
+- [5 Introducción a Regresión Lineal](#intro-regresion-lineal)
+- [6 Representación Matricial de la Regresión Lineal](#matrices-regresion-lineal)
+- [7 Funciones y rectas tangentes](#funciones-rectas-secantes-tangentes)
+- [8 Derivada de una Función](#derivada-funcion)
+- [9 Optimizacion mediante Derivadas - Funciones de una variable](#optimizacion-derivadas-una-variable)
+- [10 Optimizacion mediante Derivadas - Funciones de dos variables](#optimizacion-derivadas-dos-variable)
+- [11 Vectores Ortogonales e Independencia Lineal](#vectores-ortogonales)
+- [12 Eigenvectors y Eigenvalues](#Eigenvectors-Eigenvalues)
+- [13 Descenso del Gradiente](#Descenso-Gradiente)
+- [14 Descenso de gradiente en regresión lineal](#Descenso-Gradiente-regresion-lineal)
+- [15 Referencia](#referencia)
 
 Escalares, Vectores, y Matrices <a name="escalares-vectores-matrices"></a>
 ===============================
@@ -147,7 +162,7 @@ arrows3D(x0 = 0, y0 = 0, z0 = 0,
 ![](imagenes/unnamed-chunk-13-1.png)
 
 ------------------------------------------------------------------------
-Operaciones con Vectores
+Operaciones con Vectores <a name="Operaciones-con-Vectores"></a>
 ========================
 
 Gráfica de vectores en 2D y 3D
@@ -344,7 +359,7 @@ vec.add.plot_3d(vec1=c(1,2,3), vec2=c(4,5,4), xax=c(0,10), yax=c(0,10), zax=c(0,
 
 ------------------------------------------------------------------------
 
-Operaciones con Matrices: Suma, Resta y Multiplicación
+Operaciones con Matrices: Suma, Resta y Multiplicación <a name="Operaciones-con-matrices"></a>
 ======================================================
 
 Multiplicación de una matriz con un escalar
@@ -440,7 +455,7 @@ B %*% A
 
 ------------------------------------------------------------------------
 
-Operaciones con matrices: Matrices transpuestas, inversas e identidad
+Operaciones con matrices: Matrices transpuestas, inversas e identidad <a name="Operaciones-con-matrices2"></a>
 =====================================================================
 
 Matriz Transpuesta - funcion `t()`
@@ -594,7 +609,7 @@ A %*% I2
 
 ------------------------------------------------------------------------
 
-Introducción a Regresión Lineal
+Introducción a Regresión Lineal <a name="intro-regresion-lineal"></a>
 ===============================
 
 Ejemplo Determinístico
@@ -896,7 +911,7 @@ root.mse
 
     ## [1] 2.471485
 
-Representación Matricial de la Regresión Lineal
+Representación Matricial de la Regresión Lineal <a name="matrices-regresion-lineal"></a>
 ===============================================
 
 Traducir los componentes de regresión lineal a matrices
@@ -1050,8 +1065,7 @@ head(X)
     ## Hornet Sportabout                          1 3.440 17.02
     ## Valiant                                    1 3.460 20.22
 
-**Calcule el vector beta (Coeficientes) (debería ser 19,75, -5.05 y
-0.93)**
+**Calcule el vector beta (Coeficientes) (debería ser 19,75, -5.05 y 0.93)**
 
 ``` r
 beta <- solve(t(X) %*% X) %*% t(X) %*% y
@@ -1088,8 +1102,7 @@ head(pred)
     ## 5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2  18.19611
     ## 6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1  21.06859
 
-**Graficar la variable respuesta y los valores predichos, esperamos una
-línea recta**
+**Graficar la variable respuesta y los valores predichos, esperamos una línea recta**
 
 ``` r
 plot(pred$mpg, pred$Predicted)
@@ -1109,7 +1122,7 @@ scatter3D(x=pred$wt, y=pred$qsec, z=pred$mpg,
 
 ------------------------------------------------------------------------
 
-Funciones y rectas tangentes
+Funciones y rectas tangentes <a name="funciones-rectas-secantes-tangentes"></a>
 ============================
 
 Definición de una función
@@ -1284,7 +1297,7 @@ tangent.plots(fun = sqrt.x, pt = 3)
 
 ![](imagenes/unnamed-chunk-72-3.png)
 
-Derivada de una Función
+Derivada de una Función <a name="derivada-funcion"></a>
 =======================
 
 Graficar una función y su derivada
@@ -1403,7 +1416,7 @@ plot3d(f.y, xlim = c(-10,10), ylim = c(-10,10), col = 'green', add = TRUE)
 ![](imagenes/plot4.PNG)
 
 
-Optimizacion mediante Derivadas - Funciones de una variable
+Optimizacion mediante Derivadas - Funciones de una variable <a name="optimizacion-derivadas-una-variable"></a>
 ===========================================================
 
 ``` r
@@ -1502,7 +1515,7 @@ f.prime.prime
 
 ------------------------------------------------------------------------
 
-Optimizacion mediante Derivadas - Funciones de dos variables
+Optimizacion mediante Derivadas - Funciones de dos variables <a name="optimizacion-derivadas-dos-variable"></a>
 ============================================================
 
 ``` r
@@ -1722,7 +1735,7 @@ D
 
 ------------------------------------------------------------------------
 
-Vectores Ortogonales e Independencia Lineal
+Vectores Ortogonales e Independencia Lineal <a name="vectores-ortogonales"></a>
 ===========================================
 
 ``` r
@@ -1914,7 +1927,7 @@ x2 %*% x3
 
 ------------------------------------------------------------------------
 
-Eigenvectors y Eigenvalues
+Eigenvectors y Eigenvalues <a name="Eigenvectors-Eigenvalues"></a>
 ==========================
 
 ``` r
@@ -2033,7 +2046,7 @@ eigen.B$vectors[,2] %*% eigen.B$vectors[,3]
 
 ------------------------------------------------------------------------
 
-Descenso del Gradiente
+Descenso del Gradiente <a name="Descenso-Gradiente"></a>
 ======================
 
 ``` r
@@ -2146,7 +2159,7 @@ points3d(x.history, y.history, f(x.history,y.history), col = 'red')
 
 -------------------------------------
 
-Descenso de gradiente en regresión lineal
+Descenso de gradiente en regresión lineal <a name="Descenso-Gradiente-regresion-lineal"></a>
 =========================================
 
 ``` r
@@ -2324,7 +2337,7 @@ for (i in 1:n.iter) {
 
 ------------------------------------------------------------------------
 
-Referencia Bibliográfica
+Referencia <a name="referencia"></a>
 ========================
 
 -   https://www.oreilly.com/library/view/mathematics-for-data/9781839210945
