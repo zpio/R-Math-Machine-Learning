@@ -2437,11 +2437,16 @@ library(animation)
 #windows();
 for (i in 1:n.iter) {
   plot(x, y)
-  abline(a = b0.history[i], b = b1.history[i], col = 'red')
+  
+  abline(a = b0.history[i], 
+         b = b1.history[i], 
+         col = 'red')
+         
   text(c(-2,-2,-2), c(6,8,10), 
        labels = c(paste('b1 = ', b1.history[i], sep = ''),
                   paste('b0 = ', b0.history[i], sep = ''),
                   paste('Iteration: ', i)))
+                  
   ani.pause(interval = 0.1)
 }
 ```
