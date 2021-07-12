@@ -1,6 +1,10 @@
 🦄 Matemática esencial para Machine Learning en R
 ===============================
-Apuntes de Algebra Lineal y Cálculo en R
+Apuntes de Algebra Lineal y Cálculo en R. Archivos .R.
+
+Mas apuntes de Data Science y Machine Learning:
+
+https://zpio.github.io/datascience/
 
 ### Contenido:
 - [1 Escalares, Vectores, y Matrices](#escalares-vectores-matrices)
