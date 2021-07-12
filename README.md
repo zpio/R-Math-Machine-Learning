@@ -26,10 +26,10 @@ https://zpio.github.io/datascience/
 Escalares, Vectores, y Matrices <a name="escalares-vectores-matrices"></a>
 ===============================
 
-Definiendo un vector con `c()`, `:`, `seq()`y`rep()`
+Creando un vector con `c()`, `:`, `seq()`y`rep()`
 ----------------------------------------------------
 
-**Es un conjunto de elementos del mismo tipo. Ej. Un Vector numerico.**
+**Un vector es un conjunto de elementos del mismo tipo. Ej. Un Vector numerico.**
 
 ``` r
 # Crear un vector usando la función 'c()'
@@ -87,14 +87,16 @@ m1
     ## [2,]    4    5    6
 
 ``` r
-# obtener la dimensiones de la matriz
+# Obtener la dimensiones de la matriz
 dim(m1) 
 ```
 
     ## [1] 2 3
 
 ``` r
-m1 <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3, byrow = FALSE)
+m1 <- matrix( c(1,2,3,4,5,6), 
+              nrow = 2, ncol = 3, 
+              byrow = FALSE)
 m1
 ```
 
@@ -103,7 +105,7 @@ m1
     ## [2,]    2    4    6
 
 ``` r
-# Usando las función rbind()
+# Usando la función rbind()
 m2 <- rbind(c(1,2,3), c(4,5,6))
 m2
 ```
@@ -124,40 +126,54 @@ m3
 
 Gráficas de vectores en 2-D y 3-D
 ---------------------------------
-
+Graficando un Vector en 2-D:
 ``` r
-# Graficando un Vector en 2-D
 u1 <- c(2,4)
 
-plot(u1[1], u1[2], type = 'p', col = 'red',
-     xlim = c(0,5), ylim = c(0,5),
+plot(u1[1], u1[2], type = 'p', 
+     col = 'red',
+     xlim = c(0,5), 
+     ylim = c(0,5),
      xlab = "", ylab = "")
 
-arrows(x0 = 0, y0 = 0, x1 = u1[1], y1=u1[2], lwd = 2)
+arrows(x0 = 0, y0 = 0, 
+       x1 = u1[1], y1=u1[2], 
+       lwd = 2)
 ```
 
 ![](imagenes/unnamed-chunk-11-1.png)
 
+Graficando dos vectores en 2-D
 ``` r
-# Graficando dos vectores en 2-D
 v1 <- c(1,4)
 v2 <- c(5,8)
 
-plot(x=v1[1], y=v1[2], xlim = c(0,10), ylim = c(0,10))
-arrows(x0=0, y0=0, x1=v1[1], y1=v1[2])
+plot(x=v1[1], y=v1[2], 
+     xlim = c(0,10), 
+     ylim = c(0,10))
+     
+arrows(x0=0, y0=0, 
+       x1=v1[1], 
+       y1=v1[2])
 
-points(x=v2[1], y=v2[2], col = 'blue')
-arrows(x0=0, y0=0, x1=v2[1], y1=v2[2], col = 'blue')
+points(x=v2[1], y=v2[2], 
+       col = 'blue')
+       
+arrows(x0=0, y0=0, 
+       x1=v2[1], y1=v2[2], 
+       col = 'blue')
 ```
 
 ![](imagenes/unnamed-chunk-12-1.png)
 
+Graficando un Vector en 3-D:
 ``` r
-# Graficando un Vector en 3-D
 library(plot3D)
 u2 <- c(2,3,4)
-points3D(x=u2[1], y=u2[2], z=u2[3], col = 'red',
-         xlim = c(0,5), ylim = c(0,5), zlim = c(0,5),
+points3D(x=u2[1], y=u2[2], z=u2[3], 
+         col = 'red',
+         xlim = c(0,5), ylim = c(0,5), 
+         zlim = c(0,5),
          phi = 0)
 arrows3D(x0 = 0, y0 = 0, z0 = 0, 
          x1 = u2[1], y1 = u2[2], z1 = u2[3], 
@@ -173,29 +189,36 @@ Operaciones con Vectores <a name="Operaciones-con-Vectores"></a>
 Gráfica de vectores en 2D y 3D
 ------------------------------
 
+Función para Graficar un vector en 2-D:
 ``` r
-# Gráfica de un vector en 2-D
 vecplot_2d <- function(vector, xax, yax, color) {
   vec <- vector
   
-  plot(vec[1], vec[2], type = 'p', col = color,
+  plot(vec[1], vec[2], type = 'p', 
+       col = color,
        xlim = xax, ylim = yax,
        xlab = "", ylab = "")
   
-  arrows(x0 = 0, y0 = 0, x1 = vec[1], y1 = vec[2], lwd = 2, col = color)
+  arrows(x0 = 0, y0 = 0, 
+        x1 = vec[1], y1 = vec[2], 
+        lwd = 2, col = color)
   
-  text(x = vec[1], y = vec[2], labels = paste('(', vec[1], ',', vec[2], ')', sep = ""), 
+  text(x = vec[1], y = vec[2], 
+       labels = paste('(', vec[1], ',', vec[2], ')', sep = ""), 
        pos = 3)
 }
 
-# Aplicando la funcion de grafico de un vector 2-D
-vecplot_2d(vector = c(1,2), xax=c(0,5), yax=c(0,5), color = 'red')
+# Aplicando la función de grafico 
+# de un vector 2-D
+vecplot_2d(vector = c(1,2), 
+           xax=c(0,5), yax=c(0,5), 
+           color = 'red')
 ```
 
 ![](imagenes/unnamed-chunk-14-1.png)
 
+Función para Graficar un vector en 3-D:
 ``` r
-# Gráfica de un vector en 3-D
 library(plot3D)
 
 vecplot_3d <- function(vector, xax, yax, zax, color) {
@@ -206,12 +229,18 @@ vecplot_3d <- function(vector, xax, yax, zax, color) {
   text3D(x = vec[1]+0.5, y = vec[2], z = vec[3],
          labels = paste('(',vec[1],',',vec[2],',',vec[3],')', sep = ""), 
          add = TRUE)
-  arrows3D(x0=0, y0=0, z0=0, x1=vec[1], y1=vec[2], z1=vec[3], lwd = 2, col = color, 
+  arrows3D(x0=0, y0=0, z0=0, x1=vec[1], y1=vec[2], 
+           z1=vec[3], lwd = 2, col = color, 
            add = TRUE)
 }
 
-# Aplicando la funcion de grafico de un vector 3-D
-vecplot_3d(vector = c(2,3,4), xax = c(0,5), yax=c(0,5), zax=c(0,5), col = 'green')
+# Aplicando la funcion de grafico 
+# de un vector 3-D
+vecplot_3d(vector = c(2,3,4), 
+           xax = c(0,5), 
+           yax=c(0,5), 
+           zax=c(0,5), 
+           col = 'green')
 ```
 
 ![](imagenes/unnamed-chunk-15-1.png)
@@ -279,8 +308,8 @@ v1 + 5*v2
 Gráfica de la suma de vectores
 ------------------------------
 
+Gráfica de suma de vectores en 2-D:
 ``` r
-# Grafica de suma de vectores en 2-D
 library(tidyverse)
 
 vec.add.plot_2d <- function(vec1, vec2, xax, yax) {
@@ -288,18 +317,23 @@ vec.add.plot_2d <- function(vec1, vec2, xax, yax) {
   to.plot <- as.data.frame(rbind(vec1, vec2, vec1+vec2)) #Cols predet. V1, V2
   
   # graficar los puntos vec1 y vec1+vec2
-  plot(to.plot[-2,]$V1, to.plot[-2,]$V2, type = 'p', col = 'red', lwd = 2,
+  plot(to.plot[-2,]$V1, to.plot[-2,]$V2, 
+       type = 'p', col = 'red', lwd = 2,
        xlim = xax, ylim = yax)
   
   # poner las flechas
-  arrows(x0 = 0, y0 = 0, x1 = to.plot[1,1], y1 = to.plot[1,2], col = 'blue', lwd = 2)
-  arrows(x0 = to.plot[1,1], y0 = to.plot[1,2], x1 = to.plot[3,1], y1 = to.plot[3,2], 
+  arrows(x0 = 0, y0 = 0, x1 = to.plot[1,1], 
+         y1 = to.plot[1,2], col = 'blue', lwd = 2)
+  arrows(x0 = to.plot[1,1], y0 = to.plot[1,2], 
+         x1 = to.plot[3,1], y1 = to.plot[3,2], 
          col = 'green', lwd = 2)
-  arrows(x0 = 0, y0 = 0, x1 = to.plot[3,1], y1 = to.plot[3,2], col = 'red', lwd = 2)
+  arrows(x0 = 0, y0 = 0, x1 = to.plot[3,1], 
+         y1 = to.plot[3,2], col = 'red', lwd = 2)
   
   # poner las etiquetas de los puntos
   to.plot %>% 
     mutate(point = paste('(', V1, ',', V2, ')', sep = "")) -> to.plot
+    
   with(to.plot[-2,], text(to.plot[-2,], labels = point, pos = 4))
 }
 
@@ -310,40 +344,53 @@ vec.add.plot_2d <- function(vec1, vec2, xax, yax) {
 # 3  4  6 (4,6)
 
 # Aplicando la funcion:
-vec.add.plot_2d(vec1 = c(1,4), vec2 = c(3,2), xax=c(0,10), yax=c(0,10))
+vec.add.plot_2d(vec1 = c(1,4), 
+                vec2 = c(3,2), 
+                xax=c(0,10), 
+                yax=c(0,10))
 ```
 
 ![](imagenes/unnamed-chunk-21-1.png)
 
+Gráfica de suma de vectores en 3-D (libreria plot3D):
 ``` r
-# Grafica de suma de vectores en 3-D (libreria plot3D)
 library(plot3D)
 
 vec.add.plot_3d <- function(vec1, vec2, xax, yax, zax, phi, theta) {
   
-  points3D(x = vec1[1], y = vec1[2], z = vec1[3], col = 'red',
+  points3D(x = vec1[1], y = vec1[2], z = vec1[3], 
            xlim = xax, ylim = yax, zlim = zax,
            xlab = "x", ylab = "y", zlab = "z",
-           phi = phi,
+           phi = phi, col = 'red',
            theta = theta)
   
-  text3D(x = vec1[1], y = vec1[2], z = vec1[3]+0.25,
+  text3D(x = vec1[1], y = vec1[2], 
+         z = vec1[3]+0.25,
          labels = paste("(",vec1[1],",",vec1[2],",",vec1[3],")", sep=""), add = TRUE)
   
-  arrows3D(x0=0, y0=0, z0=0, x1=vec1[1], y1=vec1[2], z1=vec1[3], lwd = 2, col = 'blue', 
+  arrows3D(x0=0, y0=0, z0=0, 
+           x1=vec1[1], y1=vec1[2], 
+           z1=vec1[3], lwd = 2, 
+           col = 'blue', 
            add = TRUE)
   
-  points3D(x = vec1[1]+vec2[1], y = vec1[2]+vec2[2], z = vec1[3]+vec2[3], col = 'green',
+  points3D(x = vec1[1]+vec2[1], 
+           y = vec1[2]+vec2[2], 
+           z = vec1[3]+vec2[3], 
+           col = 'green',
            xlim = xax, ylim = yax, zlim = zax,
            xlab = "x", ylab = "y", zlab = "z",
            add = TRUE)
   
-  arrows3D(x0=vec1[1], y0=vec1[2], z0=vec1[3], x1=vec1[1]+vec2[1], y1=vec1[2]+vec2[2], 
-           z1=vec1[3]+vec2[3], lwd = 2, col = 'red', add = TRUE)
+  arrows3D(x0=vec1[1], y0=vec1[2], z0=vec1[3], 
+           x1=vec1[1]+vec2[1], y1=vec1[2]+vec2[2], 
+           z1=vec1[3]+vec2[3], lwd = 2, 
+           col = 'red', add = TRUE)
   
   vec3 <- vec1 + vec2
   
-  points3D(x = vec3[1], y = vec3[2], z = vec3[3], col = 'red',
+  points3D(x = vec3[1], y = vec3[2], z = vec3[3], 
+           col = 'red',
            xlim = xax, ylim = yax, zlim = zax,
            xlab = "x", ylab = "y", zlab = "z",
            add = TRUE)
@@ -351,12 +398,18 @@ vec.add.plot_3d <- function(vec1, vec2, xax, yax, zax, phi, theta) {
   text3D(x = vec3[1], y = vec3[2], z = vec3[3],
          labels = paste("(",vec3[1],",",vec3[2],",",vec3[3],")", sep=""), add = TRUE)
   
-  arrows3D(x0=0, y0=0, z0=0, x1=vec3[1], y1=vec3[2], z1=vec3[3], lwd = 2, col = 'green', 
+  arrows3D(x0=0, y0=0, z0=0, x1=vec3[1], 
+           y1=vec3[2], z1=vec3[3], lwd = 2, 
+           col = 'green', 
            add = TRUE)
 }
 
-# Grafica de suma de vectores en 3-D
-vec.add.plot_3d(vec1=c(1,2,3), vec2=c(4,5,4), xax=c(0,10), yax=c(0,10), zax=c(0,10),
+# Aplicando la funcion:
+vec.add.plot_3d(vec1=c(1,2,3), 
+                vec2=c(4,5,4), 
+                xax=c(0,10), 
+                yax=c(0,10), 
+                zax=c(0,10),
                 phi = 0, theta = 30)
 ```
 
@@ -517,8 +570,8 @@ A
     ## [1,]    1    2
     ## [2,]    3    4
 
+La forma A^-1 no devuelve una inversa; devuelve reciprocidad por elemento.
 ``` r
-# La forma A^-1 no devuelve una inversa; devuelve reciprocidad por elemento
 A^-1
 ```
 
@@ -526,8 +579,8 @@ A^-1
     ## [1,] 1.0000000 0.50
     ## [2,] 0.3333333 0.25
 
+La funcion `solve()` devuelve la inversa
 ``` r
-# La funcion solve() devuelve la inversa
 solve(A)
 ```
 
@@ -536,7 +589,7 @@ solve(A)
     ## [2,]  1.5 -0.5
 
 ``` r
-### solo las matrices cuadradas son invertibles
+# solo las matrices cuadradas son invertibles
 B <- matrix(1:6, nrow = 2)
 #       [,1] [,2] [,3]
 # [1,]    1    3    5
@@ -547,7 +600,7 @@ solve(B)
 ```
 
 ``` r
-### la matriz no puede tener una fila o columna de ceros
+# la matriz no puede tener una fila o columna de ceros
 C <- matrix(c(1,2,0,0), nrow = 2)
 #       [,1] [,2]
 # [1,]    1    0
@@ -560,9 +613,8 @@ solve(C)
 
 Matriz identidad - funcion `diag()`
 -----------------------------------
-
+Una matriz multiplicada por su inversa da la Matriz identidad
 ``` r
-### Una matriz multiplicada por su inversa da la Matriz identidad
 round(A %*% solve(A))
 ```
 
@@ -570,8 +622,8 @@ round(A %*% solve(A))
     ## [1,]    1    0
     ## [2,]    0    1
 
+Para obtener una Matriz identidad usar diag()
 ``` r
-### Para obtener una Matriz identidad usar diag()
 I2 <- diag(2)
 I2
 ```
@@ -603,8 +655,8 @@ I5
     ## [5,]    0    0    0    0    1
 
 ``` r
-### Una matriz multiplicada por la identidad 
-### da como resultado la matriz nuevamente
+# Una matriz multiplicada por la identidad 
+# da como resultado la matriz nuevamente
 A %*% I2
 ```
 
@@ -650,13 +702,11 @@ head(game.cost)
 
 **Graficamos las variables con la libreria rgl**
 
+La libreria rgl permite rotar el gráfico con el mouse.
+
 ``` r
 library(rgl)
 ```
-``` r
-knitr::knit_hooks$set(webgl = hook_webgl)
-```
-
 ``` r
 plot3d(x = game.cost$Hot.Dogs,
        y = game.cost$Fries,
@@ -677,7 +727,8 @@ plot3d(x = game.cost$Hot.Dogs,
 ``` r
 library("plot3D")
 
-scatter3D(x=game.cost$Hot.Dogs, y=game.cost$Fries, z=game.cost$Total.Cost, 
+scatter3D(x=game.cost$Hot.Dogs, y=game.cost$Fries, 
+          z=game.cost$Total.Cost, 
           pch = 20, cex = 2, bty ="g",
           theta = 20, phi = 20, 
           #ticktype = "detailed",
@@ -691,7 +742,8 @@ scatter3D(x=game.cost$Hot.Dogs, y=game.cost$Fries, z=game.cost$Total.Cost,
 **Utilice la función `lm()` para estimar un modelo de regresión lineal**
 
 ``` r
-hot.dog.model <- lm(Total.Cost ~ Hot.Dogs + Fries, data = game.cost)
+hot.dog.model <- lm(Total.Cost ~ Hot.Dogs + Fries, 
+                    data = game.cost)
 
 summary(hot.dog.model)
 ```
@@ -740,11 +792,9 @@ head(mtcars)
 
 ``` r
 library(rgl)
-knitr::knit_hooks$set(webgl = hook_webgl)
 ```
 
 ``` r
-rgl.clear()
 plot3d(x = mtcars$wt,
        y = mtcars$qsec,
        z = mtcars$mpg,
@@ -800,7 +850,6 @@ plot(mtcars$mpg, mpg.model$fitted.values)
 ![](imagenes/unnamed-chunk-50-1.png)
 
 ``` r
-rgl.clear()
 plot3d(x = mtcars$wt,
        y = mtcars$qsec,
        z = mpg.model$fitted.values,
@@ -818,7 +867,8 @@ plot3d(x = mtcars$wt,
 ![](imagenes/plot3.PNG)
 
 ``` r
-scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mpg.model$fitted.values, 
+scatter3D(x=mtcars$wt, y=mtcars$qsec, 
+          z=mpg.model$fitted.values, 
           pch = 20, cex = 2, bty ="g",
           theta = 20, phi = 20, 
           #ticktype = "detailed",
@@ -828,10 +878,13 @@ scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mpg.model$fitted.values,
 
 ![](imagenes/unnamed-chunk-51-1.png)
 
+Generamos datos ficticios para predecir y graficar 
 ``` r
 grid.lines = 26
-x.pred <- seq(min(mtcars$wt), max(mtcars$wt), length.out = grid.lines)
-y.pred <- seq(min(mtcars$qsec), max(mtcars$qsec), length.out = grid.lines)
+x.pred <- seq(min(mtcars$wt), max(mtcars$wt), 
+              length.out = grid.lines)
+y.pred <- seq(min(mtcars$qsec), max(mtcars$qsec), 
+              length.out = grid.lines)
 xy <- expand.grid( wt = x.pred, qsec = y.pred)
 z.pred <- matrix(predict(mpg.model, newdata = xy), 
                  nrow = grid.lines, ncol = grid.lines)
@@ -856,7 +909,7 @@ scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mtcars$mpg,
 Error del Modelo
 ----------------
 
-**Calculo de medidas de error para el modelo**
+**Cálculo de medidas de error para el modelo**
 
 ``` r
 # Cálculo del error cuadrático
@@ -1120,7 +1173,8 @@ scatter3D(x=pred$wt, y=pred$qsec, z=pred$mpg,
           pch = 20, cex = 2, bty ="g",
           theta = 20, phi = 20, 
           #ticktype = "detailed",
-          xlab = "pred$wt", ylab = "pred$qsec", zlab = "pred$mpg")
+          xlab = "pred$wt", ylab = "pred$qsec", 
+          zlab = "pred$mpg")
 ```
 
 ![](imagenes/unnamed-chunk-67-2.png)
@@ -1153,25 +1207,37 @@ plot(f, main = "f(x) = x", xlim = c(-5,5), col = 'blue')
 ![](imagenes/unnamed-chunk-69-1.png)
 
 ``` r
-plot(x2, main = "f(x) = x^2", xlim = c(-5,5), col = 'blue')
+plot(x2, 
+     main = "f(x) = x^2", 
+     xlim = c(-5,5), 
+     col = 'blue')
 ```
 
 ![](imagenes/unnamed-chunk-69-2.png)
 
 ``` r
-plot(x3, main = "f(x) = x^3", xlim = c(-5,5), col = 'blue')
+plot(x3, 
+     main = "f(x) = x^3", 
+     xlim = c(-5,5), 
+     col = 'blue')
 ```
 
 ![](imagenes/unnamed-chunk-69-3.png)
 
 ``` r
-plot(x4, main = "f(x) = x^4", xlim = c(-5,5), col = 'blue')
+plot(x4, 
+     main = "f(x) = x^4", 
+     xlim = c(-5,5), 
+     col = 'blue')
 ```
 
 ![](imagenes/unnamed-chunk-69-4.png)
 
 ``` r
-plot(sqrt.x, main = "f(x) = sqrt(x)", xlim = c(-5,5), col = 'blue')
+plot(sqrt.x, 
+     main = "f(x) = sqrt(x)", 
+     xlim = c(-5,5), 
+     col = 'blue')
 ```
 
     ## Warning in sqrt(x): NaNs produced
@@ -1185,8 +1251,6 @@ Estimando la pendiente de una recta tangente
 **Función para estimar la pendiente de la recta tangente usando rectas secantes**
 
 ``` r
-# Funcion para estimar la pendiente de la recta tangente usando rectas secantes
-
 #install.packages("animation")
 library(animation)
 library(Deriv)
@@ -1221,10 +1285,13 @@ secant.plots <- function(fun, pt) {
   for (i in seq(min ,max, j)) {
    
     # Grafica de la funcion
-    plot(fun, xlim = c(x1-10, x1+10), ylim = c(y1-10,y1+10), col = 'blue')
+    plot(fun, xlim = c(x1-10, x1+10), 
+         ylim = c(y1-10,y1+10), 
+         col = 'blue')
     
     # Puntos a evaluarse en la funcion
-    points(x = x1, y = y1, col = 'blue', type = 'p', pch = 16)
+    points(x = x1, y = y1, 
+           col = 'blue', type = 'p', pch = 16)
     
     # crear interceptos <b = -mx + y> para abline
     sec.int <- -i*x1 + y1
@@ -1233,18 +1300,19 @@ secant.plots <- function(fun, pt) {
     abline(a = sec.int, b = i, col = 'red')
     
     # Colocar texto de las pendientes en c/iteración
-    text(x1+8, y1-8, labels = paste('Slope:', i, sep = ""))
+    text(x1+8, y1-8, 
+         labels = paste('Slope:', i, sep = ""))
     
     # Colocar texto de las puntos a evaluarse en la función
-    text(x1-0.5, y1+0.5, labels = paste('(',x1,',',y1,')'))
+    text(x1-0.5, y1+0.5, 
+         labels = paste('(',x1,',',y1,')'))
     
     ani.pause(interval = 0.5)
   }
 }
 ```
-
+Estimar la pendiente de la recta tangente para x = -2.
 ``` r
-# estimar la pendiente de la recta tangente para x = -2
 secant.plots(fun = f, pt = -2)
 
 # Slope = -4
@@ -1258,7 +1326,9 @@ tangent.plots <-  function(fun, pt) {
   x1 <- pt
   y1 <- fun(x1)
   m1 <- f.prime(x1)
-    plot(fun, xlim = c(x1-10,x1+10), ylim = c(y1-10,y1+10), col = 'blue')
+    plot(fun, xlim = c(x1-10,x1+10), 
+         ylim = c(y1-10,y1+10), 
+         col = 'blue')
     points(x = x1, y = y1, col = 'blue', type = 'p', pch = 16)
     sec.int <- -m1*x1 + y1
     abline(a = sec.int, b = m1, col = 'red')
@@ -1314,7 +1384,9 @@ library(Deriv)
 # Definir una función
 f <- function(x) x^3
 
-plot(f, main = "f(x) = x^3", xlim = c(-5,5), col = 'blue')
+plot(f, 
+     main = "f(x) = x^3", 
+     xlim = c(-5,5), col = 'blue')
 ```
 
 ![](imagenes/unnamed-chunk-73-1.png)
@@ -1349,9 +1421,13 @@ tangent.plots(fun = f, pt = 2) #Slope = 12
 
 Grafique los siguientes puntos en la grafica:
 ``` r
-plot(f, xlim = c(-5,5), col = 'blue')
+plot(f, 
+     xlim = c(-5,5), 
+     col = 'blue')
 
-points(x = -4:4, y = c(48,27,12,3,0,3,12,27,48), col = 'red') 
+points(x = -4:4, 
+       y = c(48,27,12,3,0,3,12,27,48), 
+       col = 'red') 
 ```
 
 ![](imagenes/unnamed-chunk-75-1.png)
@@ -1523,14 +1599,14 @@ f.prime.prime
 Optimizacion mediante Derivadas - Funciones de dos variables <a name="optimizacion-derivadas-dos-variable"></a>
 ============================================================
 
-``` r
+```
 # Recuerde que: Si f(x) tiene un valor extremo en x*, entonces f'(x*) = 0.
 # Suponga que f es una función de dos variables, x e y. Entonces:
 ## Si f(x,y) tiene un valor extremo en (x*, y*), entonces, f_x(x*,y*) y f_y(x*,y*) ambos serán = 0.
 ## El punto (x*, y*) es un punto critico de f
 ```
 
-``` r
+```
 # Dada la funcion f(x,y) = x^2 + y^2 - 2*x - 6*y + 14
 
 # Su derivada con respecto a x e igualando a cero es: 
@@ -1542,7 +1618,7 @@ Optimizacion mediante Derivadas - Funciones de dos variables <a name="optimizaci
 # (1, 3) es un punto crítico y, por lo tanto, f(1,3) = 4 es el valor extremo (mínimo).
 ```
 
-``` r
+```
 # Prueba de la segunda derivada para dos Variables:
 # Si (x*, y*) es un punto critico de f(x,y) se define el valor D como:
 # D = f_xx(x*,y*) f_yy(x*,y*) - [f_xy(x*,y*)]^2
@@ -1552,7 +1628,7 @@ Optimizacion mediante Derivadas - Funciones de dos variables <a name="optimizaci
 # si D < 0 entonces, f(x*,y*) no es ni minimo ni maximo local.
 ```
 
-``` r
+```
 # Calculando D:
 ## f_xx(1,3) = 2 => 2 > 0 (si)
 ## f_yy(1,3) = 2
@@ -1633,10 +1709,10 @@ uniroot(function(x) 2*x-6, interval = c(-10,10))
     ## $estim.prec
     ## [1] 13
 
+También se pueden usar el método de la funcion solve().
 ``` r
-### También se pueden usar un par de otros métodos. Utilice solve().
-### 2x-2=0 --> 2x + 0y - 2 = 0 --> 2x + 0y = 2
-### 2y-6=0 --> 0x + 2y - 6 = 0 --> 0x + 2y = 6
+# 2x-2=0 --> 2x + 0y - 2 = 0 --> 2x + 0y = 2
+# 2y-6=0 --> 0x + 2y - 6 = 0 --> 0x + 2y = 6
 LHS <- matrix(c(2,0,0,2), nrow = 2, byrow = TRUE)
 LHS
 ```
@@ -1743,7 +1819,7 @@ D
 Vectores Ortogonales e Independencia Lineal <a name="vectores-ortogonales"></a>
 ===========================================
 
-``` r
+```
 # Dos vectores son ortogonales si su producto interno es 0
 # Los vectores ortogonales son análogos a las líneas perpendiculares.
 
@@ -1830,9 +1906,9 @@ w2 %*% w3
     ##      [,1]
     ## [1,]    0
 
-``` r
-# Todos los pares son ortogonales
-```
+
+    # Todos los pares son ortogonales
+    
 
 Ejemplo con regresión lineal
 ----------------------------
@@ -1935,18 +2011,19 @@ x2 %*% x3
 Eigenvectors y Eigenvalues <a name="Eigenvectors-Eigenvalues"></a>
 ==========================
 
-``` r
+```
 # Un Eigenvector (vector propio) de una matriz Anxn es un vector v distinto de cero tal que 
 # A*v = lambda*v, donde es lambda un escalar.
 # El escalar lambda se llama Eigenvalue (valor propio) de A
 # Decimos "v" es un vector propio correspondiente a lambda".
-
-
+```
+```
 # La matriz de varianza / covarianza:
 
 # Dado un conjunto de datos de múltiples variables, la matriz de covarianza es una matriz cuadrada 
 # que contiene las varianzas y covarianzas para cada variable o par de variables.
-
+```
+```
 # Descomposición Eigen de la matriz de covarianza:
 
 # Los Eigenvectors y Eigenvalues de la matriz de covarianza se utilizan para determinar dónde ocurre 
@@ -1955,8 +2032,8 @@ Eigenvectors y Eigenvalues <a name="Eigenvectors-Eigenvalues"></a>
 # lineal en el conjunto de datos.
 ## ¡Lo contrario no es cierto! Si la matriz de covarianza no tiene un valor propio de 0, 
 # no significa que no haya una dependencia lineal en el conjunto de datos.
-## Técnicamente, un valor propio de cero significa que no hay más variación en los datos, 
-## a menudo, esto se debe a una dependencia lineal.
+# Técnicamente, un valor propio de cero significa que no hay más variación en los datos, 
+# a menudo, esto se debe a una dependencia lineal.
 # Este concepto se utiliza en las técnicas de reducción de dimensiones más comunes.
 ```
 
@@ -2045,26 +2122,27 @@ eigen.B$vectors[,2] %*% eigen.B$vectors[,3]
     ##              [,1]
     ## [1,] 2.116363e-16
 
-``` r
-# Ninguno es cero, por lo que los datos son linealmente dependientes
-```
+
+    # Ninguno es cero, por lo que los datos son linealmente dependientes
 
 ------------------------------------------------------------------------
 
 Descenso del Gradiente <a name="Descenso-Gradiente"></a>
 ======================
 
-``` r
+```
 # Recuerde: si F es una función de x e y, entonces f_x y f_y representan las derivadas parciales 
 # de f con respecto a x e y.
-
+```
+```
 # Las derivadas parciales son funciones que describen la tasa de cambio de f, en las direcciones x e y.
 
 # Entonces podemos definir una función de 𝑓_𝑥 y 𝑓_𝑦.
 # Esta función, conocida como 𝛻𝑓  es el gradiente de 𝑓. Donde:
 # 𝛻𝑓 (𝑥, 𝑦) = [𝑓_𝑥 (𝑥, 𝑦), 𝑓_𝑦 (𝑥, 𝑦)] es una función vectorial. Devuelve un vector.
 # 𝛻𝑓 proporciona la dirección con la tasa máxima de cambio de 𝑓 desde el punto (𝑥, 𝑦)
-
+```
+```
 # Explicacion sencilla del Algoritmo del Descenso del Gradiente:
 
 # Imagina que estás parado en la ladera de una montaña y deseas caminar hasta el fondo. 
@@ -2077,7 +2155,7 @@ Descenso del Gradiente <a name="Descenso-Gradiente"></a>
 # curva hasta el mínimo (o máximo).
 ```
 
-``` r
+```
 # Algoritmo del Descenso del Gradiente:
 
 # Definir 𝛻𝑓 (𝑥, 𝑦) = [𝑓_𝑥 (𝑥, 𝑦), 𝑓_𝑦 (𝑥, 𝑦)]
@@ -2096,29 +2174,43 @@ library(rgl)
 Ejecución del algoritmo de descenso de gradiente
 ------------------------------------------------
 
+0. Defina y grafique `f (x, y) = (x-2)^2 + (y+3)^2`
+
 ``` r
-# 0. Defina y grafique f (x, y) = (x-2)^2 + (y+3)^2 
 # para x e y entre -10 y 10
 f <- function(x,y) (x-2)^2 + (y+3)^2
-plot3d(f, xlim = c(-10,10), ylim = c(-10,10), col = 'green')
+plot3d(f, 
+       xlim = c(-10,10),
+       ylim = c(-10,10), 
+       col = 'green')
 ```
 ![](imagenes/plot6.PNG)
 
+1. Define las derivadas parciales
 
 ``` r
-## 1. Define el gradiente de f
-f.x <- Deriv(f, x = 'x') ## derivada parcial con respecto a x
-f.y <- Deriv(f, x = 'y') ## derivada parcial con respecto a y
+## derivada parcial con respecto a x
+f.x <- Deriv(f, x = 'x') 
+## derivada parcial con respecto a y
+f.y <- Deriv(f, x = 'y') 
 ```
 
+2. Inicializar un punto de partida
+
 ``` r
-# 2. Inicializar un punto de partida
 x <- 0
 y <- 0
 ```
 
+Ejecutar un bucle para repetir la sección:
+
+3. Calcular el gradiente (derivadas parciales evaluado en el punto).
+
+4. Calcule el nuevo punto
+
+5. Repetir hasta encontar el punto critico
+
 ``` r
-### Ejecutar un bucle para repetir la sección
 alpha = 0.01
 n.iter <- 500
 f.history <- numeric(n.iter)
@@ -2157,8 +2249,13 @@ plot(x.history, y.history)
 ![](imagenes/unnamed-chunk-145-2.png)
 
 ``` r
-plot3d(f, xlim = c(-5,5), ylim = c(-5,5), col = 'green')
-points3d(x.history, y.history, f(x.history,y.history), col = 'red')
+plot3d(f, xlim = c(-5,5),
+       ylim = c(-5,5), 
+       col = 'green')
+points3d(x.history, 
+         y.history, 
+         f(x.history,y.history), 
+         col = 'red')
 ```
 ![](imagenes/plot7.PNG)
 
@@ -2167,7 +2264,7 @@ points3d(x.history, y.history, f(x.history,y.history), col = 'red')
 Descenso de gradiente en regresión lineal <a name="Descenso-Gradiente-regresion-lineal"></a>
 =========================================
 
-``` r
+```
 # Suponga un modelo de regresión lineal simple de y = Bo + B1x
 # Aplicar el descenso de gradiente a la función de pérdida (L)
 # permitirá encontrar Bo y B1 de manera que la pérdida (error) se minimice.
@@ -2175,8 +2272,8 @@ Descenso de gradiente en regresión lineal <a name="Descenso-Gradiente-regresion
 # y luego ejecutar el descenso de gradiente para encontrar valores óptimos para B0 y B1
 ```
 
+En Regresión lineal, la función de costo (pérdida o error) es:
 ``` r
-#En Regresión lineal, la función de costo (pérdida o error) es:
 # L = sum(ei)^2
 #   = sum(yi - y^_i)^1
 #   = sum(yi - Bo - sum(Bi xij))^2
@@ -2219,31 +2316,39 @@ abline(a = lm.mod$coefficients[1], b = lm.mod$coefficients[2], col = 'red')
 Ejecute el Descenso de gradiente
 --------------------------------
 
+Agregar el vector de 1's para el término de intersección
 ``` r
-# Agregar vector de 1 para el término de intersección
 X <- as.matrix(cbind(1, x))
 ```
 
+Definir la función de error
 ``` r
-# Definir función de error
 error <- function(beta) {
   sum((X %*% beta - y)^2) # Suma de errores al cuadrado
 }
 ```
 
+Define derivadas parcial de L con respecto B0
 ``` r
-# Define derivadas parcial de L con respecto B0
 del.b0 <- function(b0, b1) {
   sum(-y + (b1*x + b0)) * (2 / length(x))
 }
 ```
 
+Define derivadas parcial de L con respecto B1
 ``` r
-# Define derivadas parcial de L con respecto B1
 del.b1 <- function(b0, b1) {
   sum(x %*% (-y + (b1*x + b0))) * (2 / length(x))
 }
 ```
+
+Inicializar parámetros para algoritmo.
+
+Calcular el gradiente (derivadas parciales evaluado en B0 y B1).
+
+Calcular los nuevos Betas.
+
+Guardar las iteraciones de (B0, B1)
 
 ``` r
 # Inicializar parámetros para algoritmo
@@ -2333,9 +2438,10 @@ library(animation)
 for (i in 1:n.iter) {
   plot(x, y)
   abline(a = b0.history[i], b = b1.history[i], col = 'red')
-  text(c(-2,-2,-2), c(6,8,10), labels = c(paste('b1 = ', b1.history[i], sep = ''),
-                                          paste('b0 = ', b0.history[i], sep = ''),
-                                          paste('Iteration: ', i)))
+  text(c(-2,-2,-2), c(6,8,10), 
+       labels = c(paste('b1 = ', b1.history[i], sep = ''),
+                  paste('b0 = ', b0.history[i], sep = ''),
+                  paste('Iteration: ', i)))
   ani.pause(interval = 0.1)
 }
 ```
