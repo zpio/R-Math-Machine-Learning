@@ -650,7 +650,7 @@ plot3d(x = game.cost$Hot.Dogs,
        ylab = 'French Fries Purchased',
        zlab = 'Total Cost')
 ```
-![](imagenes/plot1.png)
+![](imagenes/plot1.PNG)
 
 **Otra alternativa es graficar de forma estática**
 
@@ -737,7 +737,7 @@ plot3d(x = mtcars$wt,
        ylab = 'Qsec',
        zlab = 'MPG')
 ```
-![](imagenes/plot2.png)
+![](imagenes/plot2.PNG)
 
 
 **Otra alternativa es graficar de forma estática**
@@ -795,7 +795,7 @@ plot3d(x = mtcars$wt,
        add = TRUE)
 ```
 
-![](imagenes/plot3.png)
+![](imagenes/plot3.PNG)
 
 ``` r
 scatter3D(x=mtcars$wt, y=mtcars$qsec, z=mpg.model$fitted.values, 
@@ -1400,7 +1400,7 @@ plot3d(f, xlim = c(-10,10), ylim = c(-10,10), col = 'blue')
 plot3d(f.x, xlim = c(-10,10), ylim = c(-10,10), type = 'p', col = 'red', add = TRUE)
 plot3d(f.y, xlim = c(-10,10), ylim = c(-10,10), col = 'green', add = TRUE)
 ```
-![](imagenes/plot4.png)
+![](imagenes/plot4.PNG)
 
 
 Optimizacion mediante Derivadas - Funciones de una variable
@@ -1664,7 +1664,7 @@ f2.y
 library(rgl)
 plot3d(f2.x, xlim = c(-10,10), ylim = c(-10,10))
 ```
-![](imagenes/plot5.png)
+![](imagenes/plot5.PNG)
 
 ``` r
 library(rootSolve)
@@ -2084,7 +2084,7 @@ Ejecución del algoritmo de descenso de gradiente
 f <- function(x,y) (x-2)^2 + (y+3)^2
 plot3d(f, xlim = c(-10,10), ylim = c(-10,10), col = 'green')
 ```
-![](imagenes/plot6.png)
+![](imagenes/plot6.PNG)
 
 
 ``` r
@@ -2142,7 +2142,7 @@ plot(x.history, y.history)
 plot3d(f, xlim = c(-5,5), ylim = c(-5,5), col = 'green')
 points3d(x.history, y.history, f(x.history,y.history), col = 'red')
 ```
-![](imagenes/plot7.png)
+![](imagenes/plot7.PNG)
 
 -------------------------------------
 
