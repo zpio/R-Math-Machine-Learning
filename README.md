@@ -139,14 +139,18 @@ Graficando un Vector en 2-D:
 ``` r
 u1 <- c(2,4)
 
-plot(u1[1], u1[2], type = 'p', 
+plot(u1[1], u1[2], 
+     type = 'p', 
      col = 'red',
      xlim = c(0,5), 
      ylim = c(0,5),
-     xlab = "", ylab = "")
+     xlab = "", 
+     ylab = "")
 
-arrows(x0 = 0, y0 = 0, 
-       x1 = u1[1], y1=u1[2], 
+arrows(x0 = 0, 
+       y0 = 0, 
+       x1 = u1[1], 
+       y1 = u1[2], 
        lwd = 2)
 ```
 
@@ -179,13 +183,16 @@ Graficando un Vector en 3-D:
 ``` r
 library(plot3D)
 u2 <- c(2,3,4)
-points3D(x=u2[1], y=u2[2], z=u2[3], 
+points3D(x=u2[1], y=u2[2], 
+         z=u2[3], 
          col = 'red',
-         xlim = c(0,5), ylim = c(0,5), 
+         xlim = c(0,5), 
+         ylim = c(0,5), 
          zlim = c(0,5),
          phi = 0)
 arrows3D(x0 = 0, y0 = 0, z0 = 0, 
-         x1 = u2[1], y1 = u2[2], z1 = u2[3], 
+         x1 = u2[1], y1 = u2[2], 
+         z1 = u2[3], 
          lwd = 2, add = TRUE)
 ```
 
@@ -232,10 +239,15 @@ library(plot3D)
 
 vecplot_3d <- function(vector, xax, yax, zax, color) {
   vec <- vector
-  points3D(x = vec[1], y = vec[2], z = vec[3],
-           xlim = xax, ylim = yax, zlim = zax,
-           xlab = "x", ylab = "y", zlab = "z")
-  text3D(x = vec[1]+0.5, y = vec[2], z = vec[3],
+  points3D(x = vec[1], y = vec[2], 
+           z = vec[3],
+           xlim = xax, ylim = yax, 
+           zlim = zax,
+           xlab = "x", ylab = "y", 
+           zlab = "z")
+  text3D(x = vec[1]+0.5, 
+         y = vec[2], 
+         z = vec[3],
          labels = paste('(',vec[1],',',vec[2],',',vec[3],')', sep = ""), 
          add = TRUE)
   arrows3D(x0=0, y0=0, z0=0, x1=vec[1], y1=vec[2], 
@@ -367,9 +379,12 @@ library(plot3D)
 
 vec.add.plot_3d <- function(vec1, vec2, xax, yax, zax, phi, theta) {
   
-  points3D(x = vec1[1], y = vec1[2], z = vec1[3], 
-           xlim = xax, ylim = yax, zlim = zax,
-           xlab = "x", ylab = "y", zlab = "z",
+  points3D(x = vec1[1], y = vec1[2], 
+           z = vec1[3], 
+           xlim = xax, ylim = yax, 
+           zlim = zax,
+           xlab = "x", ylab = "y", 
+           zlab = "z",
            phi = phi, col = 'red',
            theta = theta)
   
@@ -387,24 +402,29 @@ vec.add.plot_3d <- function(vec1, vec2, xax, yax, zax, phi, theta) {
            y = vec1[2]+vec2[2], 
            z = vec1[3]+vec2[3], 
            col = 'green',
-           xlim = xax, ylim = yax, zlim = zax,
-           xlab = "x", ylab = "y", zlab = "z",
+           xlim = xax, ylim = yax, 
+           zlim = zax,
+           xlab = "x", ylab = "y", 
+           zlab = "z",
            add = TRUE)
   
-  arrows3D(x0=vec1[1], y0=vec1[2], z0=vec1[3], 
+  arrows3D(x0 = vec1[1], y0 = vec1[2], 
+           z0=vec1[3], 
            x1=vec1[1]+vec2[1], y1=vec1[2]+vec2[2], 
            z1=vec1[3]+vec2[3], lwd = 2, 
            col = 'red', add = TRUE)
   
   vec3 <- vec1 + vec2
   
-  points3D(x = vec3[1], y = vec3[2], z = vec3[3], 
+  points3D(x = vec3[1], y = vec3[2], 
+           z = vec3[3], 
            col = 'red',
            xlim = xax, ylim = yax, zlim = zax,
            xlab = "x", ylab = "y", zlab = "z",
            add = TRUE)
   
-  text3D(x = vec3[1], y = vec3[2], z = vec3[3],
+  text3D(x = vec3[1], y = vec3[2], 
+         z = vec3[3],
          labels = paste("(",vec3[1],",",vec3[2],",",vec3[3],")", sep=""), add = TRUE)
   
   arrows3D(x0=0, y0=0, z0=0, x1=vec3[1], 
@@ -433,7 +453,9 @@ Multiplicación de una matriz con un escalar
 -------------------------------------------
 
 ``` r
-A <- matrix(c(-1,2,7,0), nrow = 2, ncol = 2, byrow = TRUE)
+A <- matrix(c(-1,2,7,0), nrow = 2, 
+            ncol = 2, 
+            byrow = TRUE)
 2 * A
 ```
 
@@ -445,12 +467,14 @@ Suma y Resta de matrices
 ------------------------
 
 ``` r
-A <- matrix(c(0,1,2,3), nrow = 2, byrow = TRUE)
+A <- matrix(c(0,1,2,3), nrow = 2, 
+            byrow = TRUE)
 #       [,1] [,2]
 # [1,]    0    1
 # [2,]    2    3
 
-B <- matrix(c(0,-2,-5,12), nrow = 2, byrow = TRUE)
+B <- matrix(c(0,-2,-5,12), nrow = 2, 
+            byrow = TRUE)
 #       [,1] [,2]
 # [1,]    0   -2
 # [2,]   -5   12
@@ -463,7 +487,8 @@ A + B
     ## [2,]   -3   15
 
 ``` r
-A2 <- matrix(1:6, nrow = 2, byrow = TRUE)
+A2 <- matrix(1:6, nrow = 2, 
+             byrow = TRUE)
 #       [,1] [,2] [,3]
 # [1,]    1    2    3
 # [2,]    4    5    6
@@ -473,8 +498,12 @@ A + A2
 ```
 
 ``` r
-C <- matrix(c(-3,0,1,7,4,-6), nrow = 3, byrow = TRUE)
-D <- matrix(c(-3,0,1,7,4,-6), nrow = 3, byrow = TRUE)
+C <- matrix(c(-3,0,1,7,4,-6), 
+            nrow = 3, 
+            byrow = TRUE)
+D <- matrix(c(-3,0,1,7,4,-6), 
+            nrow = 3, 
+            byrow = TRUE)
 
 C - D
 ```
@@ -525,7 +554,7 @@ B %*% A
 Operaciones con matrices: Matrices transpuestas, inversas e identidad <a name="Operaciones-con-matrices2"></a>
 =====================================================================
 
-Matriz Transpuesta - funcion `t()`
+Matriz Transpuesta - función `t()`
 ----------------------------------
 
 ``` r
@@ -566,12 +595,13 @@ t(v2)
     ##      [,1] [,2] [,3] [,4]
     ## [1,]    1    2    3    4
 
-Matriz inversa - funcion `solve()`
+Matriz inversa - función `solve()`
 ----------------------------------
 
 ``` r
 #Dada la matriz A
-A <- matrix(1:4, nrow = 2, byrow = TRUE)
+A <- matrix(1:4, nrow = 2, 
+            byrow = TRUE)
 A
 ```
 
@@ -620,9 +650,9 @@ solve(C)
 #   Lapack routine dgesv: system is exactly singular: U[2,2] = 0
 ```
 
-Matriz identidad - funcion `diag()`
+Matriz identidad - función `diag()`
 -----------------------------------
-Una matriz multiplicada por su inversa da la Matriz identidad
+Una matriz multiplicada por su inversa da la Matriz identidad.
 ``` r
 round(A %*% solve(A))
 ```
@@ -690,7 +720,7 @@ hot.dogs <- 0:20
 fries <- 0:20
 # generamos combinaciones
 game.cost <- expand.grid(hot.dogs, fries)
-
+# Nombres a las variables
 colnames(game.cost) <- c('Hot.Dogs', 'Fries')
 
 library(tidyverse)
@@ -890,11 +920,13 @@ scatter3D(x=mtcars$wt, y=mtcars$qsec,
 Generamos datos ficticios para predecir y graficar 
 ``` r
 grid.lines = 26
-x.pred <- seq(min(mtcars$wt), max(mtcars$wt), 
+x.pred <- seq(min(mtcars$wt),
+              max(mtcars$wt), 
               length.out = grid.lines)
-y.pred <- seq(min(mtcars$qsec), max(mtcars$qsec), 
+y.pred <- seq(min(mtcars$qsec), 
+              max(mtcars$qsec), 
               length.out = grid.lines)
-xy <- expand.grid( wt = x.pred, qsec = y.pred)
+xy <- expand.grid(wt = x.pred, qsec = y.pred)
 z.pred <- matrix(predict(mpg.model, newdata = xy), 
                  nrow = grid.lines, ncol = grid.lines)
 
@@ -984,7 +1016,7 @@ Representación Matricial de la Regresión Lineal <a name="matrices-regresion-li
 Traducir los componentes de regresión lineal a matrices
 -------------------------------------------------------
 
-``` r
+```
 # `y = B_0 + B_1.x + B_2.x2 + .. + B_x.xn + e`
 # 
 # Suponga que hay 𝑛 observaciones y 𝑘 variables de entrada.
@@ -1320,7 +1352,7 @@ secant.plots <- function(fun, pt) {
   }
 }
 ```
-Estimar la pendiente de la recta tangente para x = -2.
+Estimar la pendiente de la recta tangente para x = -2. La función `secant.plots` es una animación de rectas:
 ``` r
 secant.plots(fun = f, pt = -2)
 
@@ -2474,6 +2506,7 @@ Referencia <a name="referencia"></a>
 ========================
 
 -   https://www.oreilly.com/library/view/mathematics-for-data/9781839210945
+-   https://www.packtpub.com/product/mathematics-for-data-science-and-machine-learning-using-r-video/9781839210945
 
 ------------------------------------------------------------------------
 
