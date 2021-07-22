@@ -1,6 +1,6 @@
-🦄 Matemática esencial para Machine Learning en R
+🦄 Matemática para Machine Learning en R
 ===============================
-Apuntes de Algebra Lineal y Cálculo en R. Archivos .R.
+Apuntes de Algebra Lineal y Cálculo en R
 
 Mas apuntes de Data Science y Machine Learning:
 
