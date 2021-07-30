@@ -2,10 +2,6 @@
 ===============================
 Apuntes de Algebra Lineal y Cálculo en R
 
-Mas apuntes de Data Science y Machine Learning:
-
-https://zpio.github.io/datascience/
-
 ### Contenido:
 - [1 Escalares, Vectores, y Matrices](#escalares-vectores-matrices)
 - [2 Operaciones con Vectores](#Operaciones-con-Vectores)
